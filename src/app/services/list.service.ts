@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ListService {
+  
   private apiUrl = 'http://localhost:3000/animals';
 
   constructor(private http: HttpClient) {}
@@ -18,5 +19,9 @@ export class ListService {
 
   getAll(): Observable<Animal[]> {
     return this.http.get<Animal[]>(this.apiUrl);
+  }
+
+  getItem(id: Number): Observable<Animal> {
+    return this.http.get<Animal>(`${this.apiUrl}/${id}`);
   }
 }
