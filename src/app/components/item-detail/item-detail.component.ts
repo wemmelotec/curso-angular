@@ -12,13 +12,13 @@ export class ItemDetailComponent implements OnInit {
   animal?: Animal;
 
   constructor(private listService: ListService, private route: ActivatedRoute) {
-    this.getAnimal()
+    this.getAnimal();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   getAnimal() {
-    const id = Number(this.route.snapshot.paramMap.get("id"));
-    this.listService.getItem(id).subscribe((animal)=> (this.animal = animal));
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.listService.getItem(id).subscribe((animal) => (this.animal = animal));
   }
 }
